@@ -1,27 +1,31 @@
 import React, {Component} from "react";
-import {View} from "react-native";
+import {Image, ImageBackground, View} from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Button } from 'react-native-elements';
 export default class Login extends Component{
 
     render() {
         return (
-            <View style={{
+            <ImageBackground
+                source={require('../Asset/login.jpg')}
+
+                style={{
                 flex:1,
-                margin:5
+
             }}>
+
                 <View style={{
                     flex:1,
+                    margin:5,
                     alignItems: 'center',
                     justifyContent: 'center',
                 }}>
 
-                    <Input
-                        placeholder='Username'
-                    />
-
-                    <Input
-                        placeholder='Password'
+                    <Image source={require('../Asset/logo.png')}
+                    style={{
+                        width:100,
+                        height:100
+                    }}
                     />
 
                 </View>
@@ -29,16 +33,59 @@ export default class Login extends Component{
 
 
                 <View style={{
-                    flex:1
+                    flex:1,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin:5
                 }}>
 
-                    <Button
-                        title="Login"
+                    <Input
+                        placeholder='Username'
+                        inputStyle={{
+                            color:'#3b3b3b'
+                        }}
+                        inputContainerStyle={{
+                            backgroundColor: 'rgba(255,255,255,0.58)'
+                        }}
+
+                        labelStyle={{
+                            color:'#3b3b3b'
+                        }}
+                    />
+
+                    <Input
+                        placeholder='Password'
+                        inputStyle={{
+                            color:'#3b3b3b'
+                        }}
+                        inputContainerStyle={{
+                            backgroundColor: 'rgba(255,255,255,0.58)'
+                        }}
+
+                        labelStyle={{
+                            color:'#3b3b3b'
+                        }}
                     />
 
                 </View>
 
-            </View>
+
+
+                <View style={{
+                    flex:1,
+                    margin:5
+                }}>
+
+                    <Button
+                        title="Login"
+                        buttonStyle={{
+                            backgroundColor:'#FF006F'
+                        }}
+                    />
+
+                </View>
+
+            </ImageBackground>
         );
     }
 }

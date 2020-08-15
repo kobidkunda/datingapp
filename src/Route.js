@@ -17,7 +17,7 @@ export default class Route extends Component {
             <NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
                 <Stack.Navigator>
 
-                    <Stack.Screen options={{headerShown: true}}  name="Login" component={Login} />
+                    <Stack.Screen options={{headerShown: false}}  name="Login" component={Login} />
                 </Stack.Navigator>
             </NavigationContainer>
         )
