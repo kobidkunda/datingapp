@@ -1,8 +1,56 @@
 import React, {Component} from "react";
-import {Image, ImageBackground, View} from "react-native";
+import {Alert, Image, ImageBackground, View} from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Button } from 'react-native-elements';
 export default class Login extends Component{
+
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data: [],
+            loading: false,
+            username:null,
+            password: null
+        };
+    }
+
+    OnLogin = async () => {
+
+        console.log(this.state.username);
+
+        this.setState({
+            loading:true
+        })
+        let USER_PROFILE = await fetch('https://sharp-brown-93fa7e.netlify.app/index.json', {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                Pragma: 'no-cache',
+                Expires: 0,
+            },
+        });
+
+        let Logindata = await USER_PROFILE.json();
+
+        this.setState({
+            data: Logindata,
+            loading:false
+        })
+
+        if (Logindata.username === this.state.username && Logindata.password === this.state.password){
+            alert('Success')
+        } else {
+            alert('False')
+        }
+
+
+
+        console.log(Logindata);
+    }
 
     render() {
         return (
@@ -47,6 +95,7 @@ export default class Login extends Component{
                         inputContainerStyle={{
                             backgroundColor: 'rgba(255,255,255,0.58)'
                         }}
+                        onChangeText={(text) => { this.setState({username: text})} }
 
                         labelStyle={{
                             color:'#3b3b3b'
@@ -61,6 +110,9 @@ export default class Login extends Component{
                         inputContainerStyle={{
                             backgroundColor: 'rgba(255,255,255,0.58)'
                         }}
+                        onChangeText={(text) => { this.setState({password: text})} }
+
+                        secureTextEntry={true}
 
                         labelStyle={{
                             color:'#3b3b3b'
@@ -81,6 +133,8 @@ export default class Login extends Component{
                         buttonStyle={{
                             backgroundColor:'#FF006F'
                         }}
+                        loading={this.state.loading}
+                        onPress={() => this.OnLogin()}
                     />
 
                 </View>

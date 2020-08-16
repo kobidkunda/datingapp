@@ -1,0 +1,24 @@
+{
+  "appname" : "Dating App",
+  "username" : "test",
+  "password" : "test",
+  "base_url" : "https://sharp-brown-93fa7e.netlify.app",
+  "profiles" : [
+    {
+    "name" : "Deepika Nayar",
+    "img" : "/asset/1.jpg"
+  },{
+    "name" : "Amrita Suxsena",
+    "img" : "/asset/2.jpg"
+  },{
+    "name" : "Kiran Kaur",
+    "img" : "/asset/3.jpg"
+  },{
+    "name" : "Simran Powdel",
+    "img" : "/asset/4.jpg"
+  },{
+    "name" : "Samreena Ansari",
+    "img" : "/asset/5.jpg"
+  }
+  ]
+}
