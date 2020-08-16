@@ -42,9 +42,9 @@ export default class Login extends Component{
         })
 
         if (Logindata.username === this.state.username && Logindata.password === this.state.password){
-            alert('Success')
+            this.props.navigation.navigate('ListChat')
         } else {
-            alert('False')
+            alert('Invalid Password')
         }
 
 
