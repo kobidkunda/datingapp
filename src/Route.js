@@ -19,6 +19,7 @@ export default class Route extends Component {
             <NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
                 <Stack.Navigator>
 
+                    <Stack.Screen options={{headerShown:false}}  name="Login" component={Login} />
                     <Stack.Screen options={ListChat.navigationOptions}  name="ListChat" component={ListChat} />
                     <Stack.Screen options={Chat.navigationOptions}  name="Chat" component={Chat} />
                 </Stack.Navigator>
